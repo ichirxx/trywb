@@ -652,7 +652,7 @@ def fetch_code_now():
                             pass
             except Exception:
                 pass
-            time.sleep(3)
+            time.sleep(7)
         return jsonify({'status': 'not_found'})
 
     # ── temp-mail.io (with hyphen) — all 8 domains ───────────────────────────
@@ -1175,7 +1175,7 @@ def webhook_email():
     })
 
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host="0.0.0.0", port=port, debug=False)
-
+if __name__ == '__main__':
+    auth.start_bot()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False, threaded=True)
